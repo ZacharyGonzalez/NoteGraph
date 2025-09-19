@@ -56,7 +56,14 @@ function App() {
 
         <div className="main-content">
           DISPLAY NOTES NODES HERE
-          <ForceGraph todos = {todos} onNodeSelect={setSelectedTodo}/>
+          <ForceGraph
+            todos={todos.map(todo => ({
+              id: todo.id,
+              title: todo.title ?? "",
+              content: todo.content ?? ""
+            }))}
+            onNodeSelect={setSelectedTodo}
+          />
         </div>
           
         
