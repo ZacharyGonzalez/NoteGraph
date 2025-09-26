@@ -1,12 +1,6 @@
 import ForceGraph2D from 'react-force-graph-2d';
 import { useEffect, useState } from 'react';
 
-type Todo = {
-  id: string;
-  title: string;
-  content: string;
-};
-
 type Node = {
   id: string;
   title: string;
@@ -58,7 +52,7 @@ export default function ForceGraph({
       <ForceGraph2D
         graphData={graphData}
         onNodeClick={(node) => {
-          const todoNode = node as Node;
+          const todoNode = node;
           onNodeSelect(todoNode);
         }}
         nodeLabel="title"
