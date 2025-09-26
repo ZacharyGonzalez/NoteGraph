@@ -1,5 +1,8 @@
 import ForceGraph2D from 'react-force-graph-2d';
 import { useEffect, useState } from 'react';
+import type { Schema } from "../../amplify/data/resource";
+
+type Todo = Schema["Todo"]["type"];
 
 type Node = {
   id: string;
@@ -17,13 +20,12 @@ type GraphData = {
   links: Link[];
 };
 
-export default function ForceGraph({
-  todos,
-  onNodeSelect
-}: {
+type ForceGraphProp = {
   todos: Todo[];
-  onNodeSelect: (todo: Todo) => void;
-}) {
+  onNodeSelect: (todo: Node) => void;
+};
+
+export default function ForceGraph({ todos, onNodeSelect}: ForceGraphProp){
   const [graphData, setGraphData] = useState<GraphData>({
     nodes: [],
     links: [],

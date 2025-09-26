@@ -13,11 +13,7 @@ export default function GraphWindow({todos, setSelectedTodo}:GraphWindowProps){
         <div className="main-content">
           DISPLAY NOTES NODES HERE
           <ForceGraph
-            todos={todos.map(todo => ({
-              id: todo.id,
-              title: todo.title ?? "",
-              content: todo.content ?? ""
-            }))}
+            todos={todos}
             onNodeSelect={(todo) => setSelectedTodo(todos.find(t => t.id === todo.id) ?? null)}
           />
         </div>
