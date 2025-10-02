@@ -4,7 +4,7 @@ import './styles/layout.css'
 import { useEffect, useState } from 'react';
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-
+import createBlock from './components/Block';
 const client = generateClient<Schema>();
 
 function App() {
@@ -19,8 +19,6 @@ function App() {
 
     fetchTodos();
   }, []);
-
-
 
   async function createNote() {
     const title = window.prompt("Note title");
@@ -48,6 +46,7 @@ function App() {
             </li>
           ))}
         </ul>
+        {createBlock()}
       </div>
     </main>
   );
