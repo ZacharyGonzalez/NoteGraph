@@ -16,7 +16,7 @@ const client = generateClient<Schema>();
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const {user, signOut} = useAuthenticator();
-  const [selectedTodo, setSelectedTodo] = useState<Todo | null>(null);
+  const [selectedTodo] = useState<Todo | null>(null);
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
