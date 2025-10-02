@@ -1,4 +1,4 @@
-import type { Schema } from "../../amplify/data/resource";
+import type { Schema } from "../../../amplify/data/resource";
 
 type Todo = Schema["Todo"]["type"];
 
