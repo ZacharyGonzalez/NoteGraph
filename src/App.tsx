@@ -4,7 +4,7 @@ import './styles/layout.css'
 import { useEffect, useState } from 'react';
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-import createBlock from './components/Block';
+import Block from './components/Block';
 const client = generateClient<Schema>();
 
 function App() {
@@ -12,12 +12,9 @@ function App() {
   const [notes, setNotes] = useState<Array<Schema["Note"]["type"]>>([]);
 
   useEffect(() => {
-    async function fetchTodos() {
-      const result = await client.models.Note.list();
-      setNotes(result.data);
-    }
-
-    fetchTodos();
+    client.models.Note.observeQuery().subscribe({
+      next: (data) => setNotes([...data.items]),
+    });
   }, []);
 
   async function createNote() {
@@ -35,18 +32,12 @@ function App() {
   return (
     <main>
       <button onClick={createNote}>New Note</button>
-
       <div>
         <TopBar user={user} signOut={signOut} />
-        <ul>
-          {notes.map((note) => (
-            <li key = {note.id}>
-              {note.title}
-              {note.content}
-            </li>
-          ))}
-        </ul>
-        {createBlock()}
+        {notes.map((note) => (
+          <Block id={note.id} title={note.title} content={note.content} />
+        ))}
+
       </div>
     </main>
   );
