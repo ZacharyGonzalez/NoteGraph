@@ -29,6 +29,7 @@ function App() {
       });
     }
   }
+
   return (
     <main>
       <button onClick={createNote}>New Note</button>
@@ -37,7 +38,6 @@ function App() {
         {notes.map((note) => (
           <Block id={note.id} title={note.title} content={note.content} />
         ))}
-
       </div>
     </main>
   );
