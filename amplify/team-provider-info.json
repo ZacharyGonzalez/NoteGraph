@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-notebreak-dev-29806-authRole",
+      "UnauthRoleArn": "arn:aws:iam::290690312916:role/amplify-notebreak-dev-29806-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::290690312916:role/amplify-notebreak-dev-29806-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-notebreak-dev-29806-deployment",
+      "UnauthRoleName": "amplify-notebreak-dev-29806-unauthRole",
+      "StackName": "amplify-notebreak-dev-29806",
+      "StackId": "arn:aws:cloudformation:us-east-2:290690312916:stack/amplify-notebreak-dev-29806/6a6ac370-9fc9-11f0-9586-024149204f43",
+      "AmplifyAppId": "d3rr2s89p2ap0m"
+    },
+    "categories": {
+      "function": {
+        "nlpKeywords": {}
+      }
+    }
+  }
+}

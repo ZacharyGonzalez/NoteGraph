@@ -1,0 +1,9 @@
+{
+  "function": {
+    "nlpKeywords": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
