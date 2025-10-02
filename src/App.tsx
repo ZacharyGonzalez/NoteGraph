@@ -4,7 +4,6 @@ import { useAuthenticator } from '@aws-amplify/ui-react';
 import type { Schema } from "../amplify/data/resource";
 import TopBar from "./components/TopBar";
 import NoteList from "./components/NoteList";
-import GraphWindow from "./components/GraphWinsow";
 import NoteDisplay from "./components/NoteDisplay";
 import NoteCreator from "./components/NoteCreator";
 
@@ -42,7 +41,6 @@ function App() {
       <div className="layout-container">
         <TopBar user = {user} signOut = {signOut} />
         <NoteList todos = {todos} deleteTodo = {deleteTodo}/>
-        <GraphWindow todos = {todos} setSelectedTodo = {setSelectedTodo}/>
         <NoteDisplay selectedTodo = {selectedTodo}/>
         <NoteCreator createNote = {createNote}/>
       </div>
