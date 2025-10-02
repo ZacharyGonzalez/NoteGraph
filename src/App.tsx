@@ -1,6 +1,6 @@
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import TopBar from "./components/TopBar";
-
+import Draggable from 'react-draggable';
 import './layout.css'
 
 function App() {
@@ -10,6 +10,11 @@ function App() {
     <main>
       <div className="layout-container">
         <TopBar user = {user} signOut = {signOut} />
+        <Draggable>
+          <div>
+            Help me
+          </div>
+        </Draggable>
       </div>
     </main>
   );
