@@ -1,8 +1,6 @@
 import { useAuthenticator } from '@aws-amplify/ui-react';
 import TopBar from "./components/TopBar";
-import Draggable from 'react-draggable';
-import './layout.css'
-import createBlock from './components/Block';
+import './styles/layout.css'
 import { useEffect, useState } from 'react';
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
