@@ -1,4 +1,9 @@
-.Block{
+.Block {
+    display:flex;
+    align-items:center;
+    height:40px;
+    width:80px;
     justify-content: center;
     background-color: burlywood;
+    overflow: auto;
 }

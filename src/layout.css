@@ -1,7 +1,7 @@
 .layout-container {
   display: grid;
-  grid-template-rows: 60px auto; /* Top bar height, rest of the page */
-  grid-template-columns: 200px auto; /* Side bar width, rest of the space */
+  grid-template-rows: 60px auto;
+  grid-template-columns: 200px auto;
   height: 100vh;
   width: 100vw;
   grid-template-areas:
@@ -32,18 +32,17 @@
   overflow: auto;
   background-color: #fff;
 }
-.right-chunk{
+
+.right-chunk {
   grid-area: right-chunk;
   padding: 1rem;
   overflow: auto;
   background-color: #ac5252;
 }
-.bottom-chunk{
+
+.bottom-chunk {
   grid-area: bottom-chunk;
   padding: 1rem;
   overflow: auto;
   background-color: #80a5ca;
 }
-
-
- /* move index.css to .bottom-bar{}
