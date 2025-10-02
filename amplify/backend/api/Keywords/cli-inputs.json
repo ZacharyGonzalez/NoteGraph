@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/nlp": {
+      "name": "/nlp",
+      "lambdaFunction": "nlpKeywords",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

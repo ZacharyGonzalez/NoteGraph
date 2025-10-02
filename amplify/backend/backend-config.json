@@ -1,9 +1,43 @@
 {
+  "api": {
+    "Keywords": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "nlpKeywords"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "function": {
     "nlpKeywords": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_nlpKeywords_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "nlpKeywords"
+        }
+      ]
+    },
+    "AMPLIFY_function_nlpKeywords_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "nlpKeywords"
+        }
+      ]
     }
   }
 }
