@@ -9,8 +9,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        - echo "Running build in debug mode"
-        - export AWS_AMPLIFY_BUILD_DEBUG=true
+        - rm -rf node_modules
+        - rm -f package-lock.json
+        - npm install
+        - npm ci
     build:
       commands:
         - npm run build
