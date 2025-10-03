@@ -15,7 +15,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.5.0",
-    "react-force-graph-2d": "^1.29.0"
+    "react-force-graph-2d": "^1.29.0",
+    "retext": "^9.0.0",
+    "retext-keywords": "^8.0.2"
   },
   "devDependencies": {
     "@aws-amplify/backend": "^1.16.1",
