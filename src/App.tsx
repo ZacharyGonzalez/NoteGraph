@@ -30,7 +30,7 @@ function App() {
     }
   }
   async function callLambda() {
-    const res = await fetch('https://99xgeyq0m5.execute-api.us-east-2.amazonaws.com/dev/nlp', {
+    const res = await fetch('https://99xgeyq0m5.execute-api.us-east-2.amazonaws.com/dev/keywords', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: ''

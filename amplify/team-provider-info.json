@@ -13,13 +13,7 @@
     },
     "categories": {
       "function": {
-        "nlpKeywords": {
-          "deploymentBucketName": "amplify-notebreak-dev-29806-deployment",
-          "s3Key": "amplify-builds/nlpKeywords-314c316f62486169514a-build.zip"
-        }
-      },
-      "api": {
-        "Keywords": {}
+        "nlpKeywords": {}
       }
     }
   }
