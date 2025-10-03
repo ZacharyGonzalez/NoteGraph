@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { generateClient } from "aws-amplify/data";
 import { keywordExtraction } from './keywords';
 import type { Schema } from "../amplify/data/resource";
-import Block from './components/Block';
-import TopBar from "./components/TopBar";
 import './styles/layout.css'
 import { toString } from 'nlcst-to-string'
 
@@ -46,13 +44,18 @@ function App() {
 
   return (
     <main>
-      <button onClick={createNote}>New Note</button>
       <div>
-        <TopBar user={user} signOut={signOut} />
-        {notes.map((note) => (
-          <Block id={note.id} title={note.title} content={note.content} />
-        ))}
+      <button onClick={createNote}>New Note</button>
+      <button onClick={signOut}>Sign Out {user?.username}</button>
       </div>
+      <ul>
+        {notes.map((note) => (
+          <li key={note.id}>
+            {note.title}
+            {note.content}
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
