@@ -1,10 +1,13 @@
 import { useAuthenticator } from '@aws-amplify/ui-react';
+import { useEffect, useState } from 'react';
+import { generateClient } from "aws-amplify/data";
+import { RestApi } from 'aws-cdk-lib/aws-apigateway';
+
+import type { Schema } from "../amplify/data/resource";
+import Block from './components/Block';
 import TopBar from "./components/TopBar";
 import './styles/layout.css'
-import { useEffect, useState } from 'react';
-import type { Schema } from "../amplify/data/resource";
-import { generateClient } from "aws-amplify/data";
-import Block from './components/Block';
+
 const client = generateClient<Schema>();
 
 function App() {
@@ -29,11 +32,12 @@ function App() {
       });
     }
   }
+  RestApi
   async function callLambda() {
     const res = await fetch('https://99xgeyq0m5.execute-api.us-east-2.amazonaws.com/dev/keywords', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: ''
+      body: JSON.stringify({ keywords: "data" })
     });
 
     const data = await res.json();
