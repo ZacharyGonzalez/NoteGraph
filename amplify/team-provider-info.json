@@ -10,17 +10,6 @@
       "StackName": "amplify-notebreak-dev-29806",
       "StackId": "arn:aws:cloudformation:us-east-2:290690312916:stack/amplify-notebreak-dev-29806/6a6ac370-9fc9-11f0-9586-024149204f43",
       "AmplifyAppId": "d3rr2s89p2ap0m"
-    },
-    "categories": {
-      "function": {
-        "nlpKeywords": {
-          "deploymentBucketName": "amplify-notebreak-dev-29806-deployment",
-          "s3Key": "amplify-builds/nlpKeywords-7a2f31484e5972614c35-build.zip"
-        }
-      },
-      "api": {
-        "nlpApi": {}
-      }
     }
   }
 }
