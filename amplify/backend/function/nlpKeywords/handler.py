@@ -9,5 +9,5 @@ def handler(event, context):
             "Access-Control-Allow-Headers": "*",
             "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
         },
-        "body": '"Hello from myFunction!"'
+        "body": '"Hello from exterior hanlder.py Function!"'
     }
