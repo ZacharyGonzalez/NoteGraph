@@ -29,10 +29,22 @@ function App() {
       });
     }
   }
+  async function callLambda() {
+    const res = await fetch('https://99xgeyq0m5.execute-api.us-east-2.amazonaws.com/dev/nlp', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: ''
+    });
 
+    const data = await res.json();
+    console.log(data);
+  }
   return (
     <main>
       <button onClick={createNote}>New Note</button>
+      <button onClick={() => callLambda()}>
+        Call Lambda
+      </button>
       <div>
         <TopBar user={user} signOut={signOut} />
         {notes.map((note) => (
