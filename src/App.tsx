@@ -34,7 +34,7 @@ function App() {
   }
   RestApi
   async function callLambda() {
-    const res = await fetch('https://99xgeyq0m5.execute-api.us-east-2.amazonaws.com/dev/keywords', {
+    const res = await fetch('https://660o9213q2.execute-api.us-east-2.amazonaws.com/dev/keywords', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ keywords: "data" })
