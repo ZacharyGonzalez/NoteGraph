@@ -27,18 +27,18 @@ function App() {
       const words = await keywordExtraction(content); //need to check content length 
       if (words.data.keywords) {
         for (const keyword of words.data.keywords) {
-            console.log(toString(keyword.matches[0].node))
+          console.log(toString(keyword.matches[0].node))
         }
-    }
+      }
 
-    if (words.data.keyphrases) {
+      if (words.data.keyphrases) {
         for (const phrase of words.data.keyphrases) {
-            console.log(toString(phrase.matches[0].nodes))
+          console.log(toString(phrase.matches[0].nodes))
         }
-    }
+      }
       await client.models.Note.create({
-        title,
-        content,
+        title:[title],
+        content:[content],
       });
     }
   }
