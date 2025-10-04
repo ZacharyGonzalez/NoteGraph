@@ -2,11 +2,13 @@
   Incomplete project
   
 ## Disclaimer
-I focused on learning AWS, TypeScript, and React too much and didn't even implement anything for my actual project idea. 
-This also used an amplify template to get the ball rolling for me to learn typecript and react. The commit history is only taken seriously after the 1st of October. 
+  - I focused on learning AWS, TypeScript, and React too much and didn't even implement anything for my actual project idea.
+  - This also used an amplify template to get the ball rolling for me to learn typecript and react. 
+  - The commit history is only taken seriously after the 1st of October.
+  - Stack overflow and documentations were used more than AI, but it was used to help me debug several amplify build errors.
 
 ## Project idea
-The project idea was to have a user submit a note, extract the keywords and use them as keys to a dictionary with the value being the note.id. If a keyword reaches four uses or more, then access the value for that keyword stored in the dict,
+The idea was a twist on simple tasks: Have a user submit a note, extract the keywords and use them as keys to a dictionary with the value being the note.id. If a keyword reaches four uses or more, then access the value for that keyword stored in the dict,
 then automatically create a new note based on the sentences found in those notes that used the keyword ( A simple way to remind the user why they mentioned that keyword before having them type their own material ).
 
 By using force-graph-2d we could create visual nodes for the notes similar to obsidian graph's and have them auto connect by using the keywords as unique node ids (acquired from the dict).
