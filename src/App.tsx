@@ -5,9 +5,6 @@ import { keywordExtraction } from './keywords';
 import type { Schema } from "../amplify/data/resource";
 import './styles/layout.css'
 import { toString } from 'nlcst-to-string'
-import { InteractiveGridPattern } from "@/components/ui/shadcn-io/interactive-grid-pattern";
-
-
 const client = generateClient<Schema>();
 function App() {
   const { user, signOut } = useAuthenticator();
@@ -42,22 +39,6 @@ function App() {
       });
     }
   }
-
-
-  function Dashboard() {
-    return (
-      <div className="relative h-screen">
-        <InteractiveGridPattern
-          className="absolute inset-0"
-          squares={[20, 20]}
-        />
-        <div className="relative z-10">
-          {/* Your content */}
-        </div>
-      </div>
-    );
-  }
-
 
   return (
     <main>
