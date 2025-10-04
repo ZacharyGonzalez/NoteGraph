@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { cn } from "@repo/shadcn-ui/lib/utils";
+import { cn } from "../../../../lib/utils"; // ill just give it a relative path for now
 
 /**
  * InteractiveGridPattern is a component that renders a grid pattern with interactive squares.
