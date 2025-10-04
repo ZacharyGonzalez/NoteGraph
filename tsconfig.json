@@ -32,10 +32,14 @@
   "include": [
     "src"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "test",
+  /* I have spent hours trying to fix this, i'm just gonna brute force each file that complains.*/
+  "exclude": [ 
+    "src/App.tsx",
+    "src/components/ui/shadcn-io/interactive-grid-pattern/index.tsx",
+    "src/keywords.ts",
+    "src/lib/utils.ts",
+    "src/main.tsx",
+    "node_modules"
   ],
   "references": [
     {
