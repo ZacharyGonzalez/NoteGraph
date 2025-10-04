@@ -4,7 +4,6 @@
 ## Disclaimer
 I focused on learning AWS, TypeScript, and React too much and didn't even implement anything for my actual project idea. 
 This also used an amplify template to get the ball rolling for me to learn typecript and react. The commit history is only taken seriously after the 1st of October. 
-Ultimately I failed as a participant as I was struggling with AWS for too long and didn't even realize the dates, but it was fun and I learned a lot.
 
 ## Project idea
 The project idea was to have a user submit a note, extract the keywords and use them as keys to a dictionary with the value being the note.id. If a keyword reaches four uses or more, then access the value for that keyword stored in the dict,
