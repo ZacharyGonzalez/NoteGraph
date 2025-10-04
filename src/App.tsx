@@ -1,14 +1,21 @@
+import { useAuthenticator } from '@aws-amplify/ui-react';
 import { useEffect, useState } from 'react';
 import { generateClient } from "aws-amplify/data";
 import { toString } from "nlcst-to-string";
 import { keywordExtraction } from './keywords';
 import type { Schema } from "../amplify/data/resource";
 import './App.css'
+import TopBar from './topBar';
+import Sidebar from './sideBar';
+import TextEditor from './textEditor';
+import NoteBoard from './noteBoard';
 
 const client = generateClient<Schema>();
 
 function App() {
+  const { user, signOut } = useAuthenticator();
   const [notes, setNotes] = useState<Array<Schema["Note"]["type"]>>([]);
+  const [selectedNote, setSelectedNote] = useState<string | null>(null); 
 
   useEffect(() => {
     client.models.Note.observeQuery().subscribe({
@@ -16,21 +23,38 @@ function App() {
     });
   }, []);
 
+  function handleSelectNote(noteId: string) {
+    setSelectedNote(noteId);
+  }
+
+  function handleDeleteNote() {
+    if (selectedNote) {
+      client.models.Note.delete(selectedNote)
+        .then(() => {
+          setNotes((prevNotes) => prevNotes.filter((note) => note.id !== selectedNote)); 
+          setSelectedNote(null); 
+        })
+        .catch((error) => {
+          console.error("Error deleting note:", error);
+        });
+    }
+  }
+
   async function createNote() {
     const title = window.prompt("Note title");
     const content = window.prompt("Note content");
 
     if (title && content) {
-      const words = await keywordExtraction(content); //need to check content length 
+      const words = await keywordExtraction(content);
       if (words.data.keywords) {
         for (const keyword of words.data.keywords) {
-          console.log(toString(keyword.matches[0].node))
+          console.log(toString(keyword.matches[0].node));
         }
       }
 
       if (words.data.keyphrases) {
         for (const phrase of words.data.keyphrases) {
-          console.log(toString(phrase.matches[0].nodes))
+          console.log(toString(phrase.matches[0].nodes));
         }
       }
       await client.models.Note.create({
@@ -41,31 +65,16 @@ function App() {
   }
 
   return (
-    <div className ="App">
-      <div className="top-bar">
-        <h1>NoteGraph</h1>
-        <div>
-          user
-        </div>
-      </div>
-      <div className="main">
-        <div className="top-chunk">
-          <h2>Notes</h2>
-          <button onClick={createNote}>Create Note</button>
-          <ul>
-            {notes.map((note) => (
-              <li key={note.id}>
-                <h3>{note.title}</h3>
-                <p>{note.content}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="bottom-chunk">
-          <h2>Graph Visualization</h2>
-          {/* Graph visualization will go here */}
-        </div>
-      </div>
+    <div className="layout-container">
+      {TopBar({ user, signOut })}
+      {Sidebar({ notes, createNote, handleDeleteNote })}
+      {TextEditor(setNotes, notes)}
+      {NoteBoard({ notes, handleSelectNote })}
+      {selectedNote && (
+        <button onClick={handleDeleteNote} className="delete-note-button">
+          Delete Selected Note
+        </button>
+      )}
     </div>
   );
 }
