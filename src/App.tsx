@@ -42,7 +42,6 @@ function App() {
 
   return (
     <main>
-      {Dashboard()}
       <div>
         <button onClick={createNote}>New Note</button>
         <button onClick={signOut}>Sign Out {user?.username}</button>
